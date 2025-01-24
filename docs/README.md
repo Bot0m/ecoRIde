@@ -24,6 +24,7 @@ root/
 │   │   ├── home.html             # Page d'accueil
 │   │   ├── covoiturages.html     # Page des covoiturages
 │   │   └── contact.html          # Page contact
+│   │   └── mentions-legales.html # Mentions legales
 │   ├── assets/                   # CSS, JS, images
 │   │   ├── css/
 │   │   ├── js/
@@ -38,6 +39,19 @@ root/
 - **Front-end** : Commencer par l’interface de la page d’accueil (HTML/CSS/JS).
 
 ---
+## Chartre graphique couleur
+
+| Usage                 | Couleur            | HEX       |
+|-----------------------|--------------------|-----------|
+| Texte principal       | Gris anthracite    | #2F4F4F   |
+| Texte secondaire      | Gris clair         | #B0B0B0   |
+| Boutons (base)        | Bleu sarcelle      | #008080   |
+| Boutons (hover)       | Bleu sombre        | #005F5F   |
+| Background principal  | Gris clair teinté  | #E8E6E3   |
+| Background secondaire | Beige foncé        | #C8B9A6   |
+
+---
 
 ## Auteur
 Développé par **Tom Perrocheau**.
+
