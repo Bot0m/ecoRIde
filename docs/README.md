@@ -12,24 +12,26 @@ root/
 ├── backend/ # Code back-end
 │ ├── controllers/ # Contrôleurs
 │ ├── models/ # Modèles
-│ ├── views/ # Vues
-│ ├── config/ # Fichiers de configuration (à venir)
-│ └── index.php # Point d'entrée
-├── frontend/
-│ ├── components/ # Composants réutilisables
-│ │ ├── header.html # En-tête (menu/navigation)
-│ │ ├── footer.html # Bas de page
-│ │ │── mentions-legales.php # Mentions legales
-│ │ └── search-bar.html # Composant pour la barre de recherche
-│ ├── pages/ # Pages spécifiques
-│ │ ├── home.html # Page d'accueil
-│ │ ├── covoiturages.html # Page des covoiturages
-│ │ └── contact.html # Page contact
-│ ├── assets/ # CSS, JS, images
+│ ├── config/ # Fichiers de configuration
+│ └── index.php # Point d'entrée backend (API)
+├── frontend/ # Code source frontend
+│ ├── components/
+│ │ ├── header.php
+│ │ ├── footer.php
+│ │ └── search-bar.php
+│ ├── pages/
+│ │ ├── home.php
+│ │ ├── covoiturages.php
+│ │ ├── mentions-legales.php
+│ │ └── contact.php
+│ └── ...
+├── public/ # Fichiers accessibles publiquement
+│ ├── index.php # Point d'entrée principal pour le frontend
+│ ├── assets/
 │ │ ├── css/
 │ │ ├── js/
 │ │ └── images/
-│ └── index.php # Page principale (peut inclure les composants)
+│ └── ... # Autres fichiers statiques
 └── docs/ # Documentation
 
 ---
