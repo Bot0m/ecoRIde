@@ -41,3 +41,24 @@ document.addEventListener('DOMContentLoaded', () => {
     handleActiveLinks();
     handleMenuToggle();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleSearch = document.getElementById("toggleSearch");
+    const togglePublish = document.getElementById("togglePublish");
+    const searchForm = document.getElementById("searchForm");
+    const publishForm = document.getElementById("publishForm");
+
+    toggleSearch.addEventListener("click", function () {
+        searchForm.classList.add("active");
+        publishForm.classList.remove("active");
+        toggleSearch.classList.add("active");
+        togglePublish.classList.remove("active");
+    });
+
+    togglePublish.addEventListener("click", function () {
+        publishForm.classList.add("active");
+        searchForm.classList.remove("active");
+        togglePublish.classList.add("active");
+        toggleSearch.classList.remove("active");
+    });
+});
