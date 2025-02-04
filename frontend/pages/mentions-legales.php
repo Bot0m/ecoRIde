@@ -1,5 +1,5 @@
-<main class="main">
-    <div class="main-container">
+<main class="mentions">
+    <div >
         <h1>Mentions légales</h1>
 
         <section>

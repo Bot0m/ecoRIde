@@ -24,6 +24,35 @@ body {
     min-height: 100vh;
 }
 
+/* Bouton de retour en haut */
+.scroll-to-top {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--button-primary);
+    color: var(--background-main);
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--button-hover);
+}
+
+.scroll-to-top.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
 /* ===================== HEADER ===================== */
 .navbar {
     background-color: var(--background-secondary);
@@ -74,18 +103,70 @@ body {
     background-color: var(--button-hover);
     color: var(--background-main);
 }
+/* ===================== RESPONSIVE - MENU BURGER ===================== */
+
+/* Menu mobile (hamburger) */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--background-main);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Cacher le menu sur mobile par défaut */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--background-secondary);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        width: 200px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+}
+
 
 /* ===================== LOGO & Formulaires/Toggle ===================== */
 
-/* Titre bien en haut */
-.main-container {
-    text-align: center;
-    width: 100%;
-    margin: 30px 0;
-}
-
 html, body h1 {
     color: var(--button-primary);
+    text-align: center;
+}
+
+.hero-section {
+    margin-bottom: 50px;
 }
 
 /* Organisation des colonnes */
@@ -219,6 +300,36 @@ input[type="date"], select {
     padding-bottom: 50px;
 }
 
+/* ===================== RESPONSIVE - LOGO & Formulaires/Toggle ===================== */
+@media (max-width: 1024px) {
+    .columns {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .column.right {
+        padding-left: 0;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 150%;
+        max-width: 500px;
+        margin-bottom: 40px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    .toggle-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
 /* ===================== SECTION PRINCIPALE ===================== */
 
 /* Section principale */
@@ -280,6 +391,31 @@ input[type="date"], select {
     flex-direction: column;
 }
 
+/* ===================== RESPONSIVE - HOME CONTENT ===================== */
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .reverse {
+        flex-direction: column;
+    }
+
+    .content-text {
+        order: -1; /* Force le texte à apparaître avant l'image, probleme du bloc 2*/
+    }
+
+    .content-text, .content-image {
+        max-width: 90%;
+    }
+
+    .content-image img {
+        max-width: 80%; /* Ajuste la taille des images sur mobile */
+    }
+}
+
 /* ===================== Reviews SECTION ===================== */
 .reviews-section {
     text-align: center;
@@ -300,6 +436,7 @@ input[type="date"], select {
     width: 100%;
     height: 100%;
     z-index: 1;
+    pointer-events: none;
 }
 
 /* Augmente la taille du titre */
@@ -345,6 +482,23 @@ input[type="date"], select {
     font-style: italic;
 }
 
+/* ===================== RESPONSIVE - REVIEWS SECTION ===================== */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-card {
+        max-width: 90%;
+        padding: 25px; /* Ajuste la taille intérieure */
+    }
+
+    .reviews-title {
+        font-size: 30px; /* Ajuste la taille du titre sur mobile */
+    }
+}
+
 /* ===================== FOOTER ===================== */
 .footer {
     background-color: var(--background-secondary);
@@ -366,124 +520,7 @@ input[type="date"], select {
     text-decoration: underline;
 }
 
-/* ===================== RESPONSIVE - MENU BURGER ===================== */
-
-/* Menu mobile (hamburger) */
-.navbar-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.navbar-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--background-main);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.navbar-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.navbar-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Cacher le menu sur mobile par défaut */
-@media (max-width: 768px) {
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        background-color: var(--background-secondary);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        width: 200px;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-menu.active {
-        display: flex;
-    }
-
-    .navbar-toggle {
-        display: flex;
-    }
-}
-
-/* ===================== RESPONSIVE - SEARCH CARD ===================== */
-@media (max-width: 1024px) {
-    .columns {
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .column.right {
-        padding-left: 0;
-        align-items: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .form-container {
-        width: 150%;
-        max-width: 500px;
-        margin-bottom: 40px;
-    }
-
-    .logo {
-        width: 180px;
-    }
-
-    .toggle-button {
-        font-size: 14px;
-        padding: 10px;
-    }
-}
-
-/* ===================== RESPONSIVE - HOME CONTENT ===================== */
-@media (max-width: 1024px) {
-    .content-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .reverse {
-        flex-direction: column;
-    }
-
-    .content-text, .content-image {
-        max-width: 90%;
-    }
-
-    .content-image img {
-        max-width: 80%; /* Ajuste la taille des images sur mobile */
-    }
-}
-
-/* ===================== RESPONSIVE - REVIEWS SECTION ===================== */
-@media (max-width: 768px) {
-    .reviews-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .review-card {
-        max-width: 90%;
-        padding: 25px; /* Ajuste la taille intérieure */
-    }
-
-    .reviews-title {
-        font-size: 30px; /* Ajuste la taille du titre sur mobile */
-    }
+.mentions {
+    text-align: left;
+    margin: auto;
 }

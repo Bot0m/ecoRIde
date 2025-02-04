@@ -17,8 +17,7 @@ root/
 ├── frontend/ # Code source frontend
 │ ├── components/
 │ │ ├── header.php
-│ │ ├── footer.php
-│ │ └── search-bar.php
+│ │ └── footer.php
 │ ├── pages/
 │ │ ├── home.php
 │ │ ├── covoiturages.php

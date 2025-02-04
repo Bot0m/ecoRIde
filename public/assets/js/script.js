@@ -1,64 +1,98 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Gestion des liens actifs
-    const handleActiveLinks = () => {
-        const menuLinks = document.querySelectorAll('.navbar-menu a');
-        const urlParams = new URLSearchParams(window.location.search);
-        const currentPage = urlParams.get('page') || 'home';
-
-        console.log("Page actuelle :", currentPage);
-
-        menuLinks.forEach(link => {
-            const linkParams = new URL(link.href).searchParams;
-            const linkPage = linkParams.get('page');
-
-            console.log(`Lien analysé : ${link.href}, Page du lien : ${linkPage}`);
-
-            if (linkPage === currentPage) {
-                console.log(`Lien actif trouvé : ${link.href}`);
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    };
-
-    // Gestion du menu burger
-    const handleMenuToggle = () => {
-        const toggle = document.querySelector('.navbar-toggle');
-        const menu = document.querySelector('.navbar-menu');
-
-        if (toggle && menu) {
-            toggle.addEventListener('click', () => {
-                toggle.classList.toggle('active');
-                menu.classList.toggle('active');
-            });
-        } else {
-            console.warn("Navbar toggle ou menu introuvable.");
-        }
-    };
-
-    // Initialisation des fonctions
-    handleActiveLinks();
-    handleMenuToggle();
+    initialize();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+// Initialisation des fonctionnalités principales au chargement du DOM
+function initialize() {
+    handleActiveLinks();
+    handleMenuToggle();
+    handleFormToggle();
+    validateForm();
+    handleScrollToTop();
+}
+
+// Gestion des liens actifs dans la navigation
+// Cette fonction met en surbrillance le lien correspondant à la page actuelle
+function handleActiveLinks() {
+    const menuLinks = document.querySelectorAll('.navbar-menu a');
+    const currentUrl = window.location.href;
+    
+    menuLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.href === currentUrl) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Gestion du menu burger pour la navigation mobile
+function handleMenuToggle() {
+    const toggle = document.querySelector('.navbar-toggle');
+    const menu = document.querySelector('.navbar-menu');
+    
+    if (!toggle || !menu) return;
+    
+    toggle.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+}
+
+// Gestion de l'affichage des formulaires (recherche et publication)
+function handleFormToggle() {
     const toggleSearch = document.getElementById("toggleSearch");
     const togglePublish = document.getElementById("togglePublish");
     const searchForm = document.getElementById("searchForm");
     const publishForm = document.getElementById("publishForm");
+    const allForms = document.querySelectorAll(".form");
+    
+    if (!toggleSearch || !togglePublish || !searchForm || !publishForm) return;
+    
+    toggleSearch.addEventListener("click", () => toggleForm(searchForm, toggleSearch, togglePublish, allForms));
+    togglePublish.addEventListener("click", () => toggleForm(publishForm, togglePublish, toggleSearch, allForms));
+}
 
-    toggleSearch.addEventListener("click", function () {
-        searchForm.classList.add("active");
-        publishForm.classList.remove("active");
-        toggleSearch.classList.add("active");
-        togglePublish.classList.remove("active");
-    });
+// Fonction pour basculer entre les formulaires visibles
+function toggleForm(formToShow, buttonToActivate, buttonToDeactivate, allForms) {
+    allForms.forEach(form => form.classList.remove("active"));
+    formToShow.classList.add("active");
+    buttonToActivate.classList.add("active");
+    buttonToDeactivate.classList.remove("active");
+}
 
-    togglePublish.addEventListener("click", function () {
-        publishForm.classList.add("active");
-        searchForm.classList.remove("active");
-        togglePublish.classList.add("active");
-        toggleSearch.classList.remove("active");
+// Validation des formulaires
+// Vérifie que tous les champs requis sont remplis avant soumission
+function validateForm() {
+    document.querySelectorAll("form").forEach(form => {
+        form.addEventListener("submit", event => {
+            let isValid = true;
+            form.querySelectorAll("input[required], select[required], textarea[required]").forEach(input => {
+                if (input.value.trim() === "") {
+                    isValid = false;
+                    input.classList.add("error");
+                } else {
+                    input.classList.remove("error");
+                }
+            });
+            if (!isValid) {
+                alert("Veuillez remplir tous les champs obligatoires");
+                event.preventDefault();
+            }
+        });
     });
-});
+}
+
+// Gestion du bouton "Retour en haut"
+// Affiche ou masque le bouton en fonction du défilement et gère l'animation de retour en haut
+function handleScrollToTop() {
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+    if (!scrollToTopBtn) return;
+    
+    window.addEventListener("scroll", () => {
+        scrollToTopBtn.classList.toggle("show", window.scrollY > 300);
+    });
+    
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}

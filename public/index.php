@@ -1,5 +1,5 @@
 <?php
-// Inclure la configuration globale
+//configuration globale
 require_once '../backend/config/config.php';
 
 // Récupérer la page demandée via l'URL (par défaut : home)
@@ -16,8 +16,8 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 <body>
 
     <?php
-    // Inclure le header
-    include '../frontend/components/header.php';
+    // Include header
+    require_once '../frontend/components/header.php';
 
     // Charger le contenu de la page en fonction de "page"
     switch ($page) {
@@ -36,10 +36,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
             break;
     }
 
-    // Inclure le footer
-    include '../frontend/components/footer.php';
+    //include footer
+    require_once '../frontend/components/footer.php';
     ?>
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Remonter la page">&#8679;</button>
     <script src="assets/js/script.js" defer></script>
-
 </body>
 </html>

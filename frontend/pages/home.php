@@ -45,7 +45,7 @@
                                 <option value="8">8</option>
                             </select>
 
-                            <button class="search-button">Rechercher</button>
+                            <button class="search-button" title="Lancer votre recherche">Rechercher</button>
                         </div>
 
                         <!-- Formulaire de publication -->
@@ -71,7 +71,7 @@
                                 <option value="8">8</option>
                             </select>
 
-                            <button class="search-button">Publier</button>
+                            <button class="search-button" title="Envoyer votre formulaireok">Publier</button>
                         </div>
                     </div>
                 </div>
