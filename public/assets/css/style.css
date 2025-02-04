@@ -229,6 +229,7 @@ html, body h1 {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: start;
 }
 
 /* Cache les formulaires par défaut */
@@ -496,6 +497,173 @@ input[type="date"], select {
 
     .reviews-title {
         font-size: 30px; /* Ajuste la taille du titre sur mobile */
+    }
+}
+
+/* ===================== Covoiturages / Search ===================== */
+
+.search-container {
+    background: var(--background-secondary);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: start;
+    margin: 20px;
+}
+
+.search-container::placeholder {
+    font-size: 14px;
+    color: var(--text-secondary);
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-row {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.search-input, .search-button-co {
+    height: 40px; /* Assure une hauteur uniforme */
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color, #ccc);
+}
+
+.search-button-co {
+    align-self: center;
+    height: 60px;
+    padding: 8px 10px;
+    width: 50%;
+    background: var(--button-primary);
+    color: var(--background-main);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="date"] {
+    width: 150px; /* Ajuste selon la taille du texte */
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+select {
+    width: 60px !important;
+    min-width: 60px !important;
+    max-width: 60px !important;
+}
+
+.search-results {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--background-main);
+    border-radius: 12px;
+}
+
+.no-results p {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.suggested-trips {
+    margin-top: 15px;
+}
+
+.trip-cards {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.trip-card {
+    background: var(--background-secondary);
+    padding: 15px;
+    border-radius: 12px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+.trip-card:hover {
+    transform: scale(1.05);
+}
+
+.trip-card p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.trip-button {
+    background: var(--button-primary);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.trip-button:hover {
+    background: var(--button-secondary);
+}
+
+/* ===================== Responsive - Covoiturages / Search ===================== */
+
+@media screen and (max-width: 1024px) {
+    .search-row {
+        flex-direction: column; /* Affichage en colonne pour les écrans plus petits */
+        gap: 10px;
+    }
+
+    .search-button-co {
+        width: 100%; /* Le bouton prend toute la largeur */
+        height: 50px;
+    }
+
+    input[type="date"], select {
+        width: 100%; /* Évite les décalages */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .search-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .search-group {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+        height: 40px;
+    }
+
+    .search-button-co {
+        width: 100%;
+        height: 50px;
     }
 }
 

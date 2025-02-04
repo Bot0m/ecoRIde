@@ -27,6 +27,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
         case 'mentions-legales':
             include '../frontend/pages/mentions-legales.php';
             break;
+        case 'covoiturages':
+            include '../frontend/pages/covoiturages.php';
+            break;
         case 'connexion':
             include '../frontend/pages/connexion.php';
             break;
