@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /public/
+
+# Rediriger tout sauf les fichiers et dossiers existants vers index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?page=$1 [QSA,L]

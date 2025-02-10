@@ -9,32 +9,44 @@ EcoRide est une application web permettant de rechercher, réserver et proposer 
 ## Structure actuelle
 
 root/
-backend/
-├── controllers/
-│ ├── CovoiturageController.php
-├── models/
-│ ├── Covoiturage.php
-├── config/
-│ ├── database.php
-├── index.php
-└── api.php
+├── backend/
+│ ├── controllers/
+│ │ ├── CovoiturageController.php
+│ ├── models/
+│ │ ├── Covoiturage.php
+│ ├── config/
+│ │ ├── database.php
+│ ├── index.php
+│ ├── api.php
+│
 ├── frontend/ # Code source frontend
 │ ├── components/
 │ │ ├── header.php
-│ │ └── footer.php
+│ │ ├── footer.php
 │ ├── pages/
 │ │ ├── home.php
 │ │ ├── covoiturages.php
 │ │ ├── mentions-legales.php
-│ │ └── contact.php
-│ └── ...
+│ │ ├── contact.php
+│ │ ├── connexion.php
+│ │ ├── 404.php
+│ ├── router.php # 🔄 Déplacé ici pour ne pas être accessible publiquement
+│
 ├── public/ # Fichiers accessibles publiquement
-│ ├── index.php # Point d'entrée principal pour le frontend
+│ ├── index.php
+│ ├── .htaccess
 │ ├── assets/
 │ │ ├── css/
+│ │ │ ├── style.css
+│ │ │ ├── home.css
+│ │ │ ├── covoiturages.css
+│ │ │ ├── mentions-legales.css
+│ │ │ ├── connexion.css
 │ │ ├── js/
-│ │ └── images/
-│ └── ... # Autres fichiers statiques
+│ │ │ ├── script.js
+│ │ │ ├── ...
+│ │ ├── images/
+│
 └── docs/ # Documentation
 
 ---
