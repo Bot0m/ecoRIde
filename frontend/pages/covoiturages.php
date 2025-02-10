@@ -35,30 +35,31 @@
         </div>
     </section>
     <section class="search-results">
-    <div class="no-results">
-        <p>Aucun trajet n'a été trouvé pour votre recherche.</p>
-        <p>Essayez une autre recherche ou explorez nos suggestions :</p>
-    </div>
+        <div class="no-results">
+            <p>Aucun trajet n'a été trouvé pour votre recherche.</p>
+            <p>Essayez une autre recherche ou explorez nos suggestions :</p>
+        </div>
     
-    <div class="suggested-trips">
-        <h3>🚗 Trajets populaires</h3>
-        <div class="trip-cards">
-            <div class="trip-card">
-                <p><strong>Paris → Lyon</strong></p>
-                <p>💰 30€ | ⏰ 08:00</p>
-                <button class="trip-button">Voir</button>
-            </div>
-            <div class="trip-card">
-                <p><strong>Bordeaux → Marseille</strong></p>
-                <p>💰 25€ | ⏰ 10:30</p>
-                <button class="trip-button">Voir</button>
-            </div>
-            <div class="trip-card">
-                <p><strong>Lille → Strasbourg</strong></p>
-                <p>💰 20€ | ⏰ 12:00</p>
-                <button class="trip-button">Voir</button>
+        <div class="suggested-trips">
+            <h3>🚗 Trajets populaires</h3>
+            <div class="trip-cards">
+                <div class="trip-card">
+                    <p><strong>Paris → Lyon</strong></p>
+                    <p>💰 30€ | ⏰ 08:00</p>
+                    <button class="trip-button">Voir</button>
+                </div>
+                <div class="trip-card">
+                    <p><strong>Bordeaux → Marseille</strong></p>
+                    <p>💰 25€ | ⏰ 10:30</p>
+                    <button class="trip-button">Voir</button>
+                </div>
+                <div class="trip-card">
+                    <p><strong>Lille → Strasbourg</strong></p>
+                    <p>💰 20€ | ⏰ 12:00</p>
+                    <button class="trip-button">Voir</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </main>
+

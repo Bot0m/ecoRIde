@@ -23,30 +23,40 @@
                     <!-- Conteneur des formulaires -->
                     <div class="form-container">
                         <!-- Formulaire de recherche -->
-                        <div id="searchForm" class="form active">
-                            <label for="from-search">De</label>
-                            <input type="text" id="from-search" placeholder="Lieu de départ" class="search-input">
+                        <form action="covoiturages.php" method="GET">
+                            <div id="searchForm" class="form active">
+                                <div class="search-group">
+                                    <label for="from-search">De</label>
+                                    <input type="text" id="from-search" placeholder="Lieu de départ" class="search-input">
+                                </div>
 
-                            <label for="to-search">À</label>
-                            <input type="text" id="to-search" placeholder="Lieu d'arrivée" class="search-input">
+                                <div class="search-group">
+                                    <label for="to-search">À</label>
+                                    <input type="text" id="to-search" placeholder="Lieu d'arrivée" class="search-input">
+                                </div>
 
-                            <label for="date-search">Date</label>
-                            <input type="date" id="date-search" class="search-input">
+                                <div class="search-group">
+                                    <label for="date-search">Date</label>
+                                    <input type="date" id="date-search" class="search-input">
+                                </div>
+                                
+                                <div class="search-group">
+                                    <label for="passengers-search">Nombre de passagers</label>
+                                    <select id="passengers-search" class="search-input">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                    </select>
+                                </div>
 
-                            <label for="passengers-search">Nombre de passagers</label>
-                            <select id="passengers-search" class="search-input">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                            </select>
-
-                            <button class="search-button" title="Lancer votre recherche">Rechercher</button>
-                        </div>
+                                <button class="search-button" title="Lancer votre recherche">Rechercher</button>
+                            </div>
+                        </form>
 
                         <!-- Formulaire de publication -->
                         <div id="publishForm" class="form">
