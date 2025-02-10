@@ -9,11 +9,15 @@ EcoRide est une application web permettant de rechercher, réserver et proposer 
 ## Structure actuelle
 
 root/
-├── backend/ # Code back-end
-│ ├── controllers/ # Contrôleurs
-│ ├── models/ # Modèles
-│ ├── config/ # Fichiers de configuration
-│ └── index.php # Point d'entrée backend (API)
+backend/
+├── controllers/
+│ ├── CovoiturageController.php
+├── models/
+│ ├── Covoiturage.php
+├── config/
+│ ├── database.php
+├── index.php
+└── api.php
 ├── frontend/ # Code source frontend
 │ ├── components/
 │ │ ├── header.php
