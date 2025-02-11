@@ -40,6 +40,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
     <button id="scrollToTop" class="scroll-to-top" aria-label="Remonter la page">&#8679;</button>
 
     <!-- Scripts -->
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/navigation.js" defer></script>
+    <script src="assets/js/form.js" defer></script>
+    <script src="assets/js/scrolltotop.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+
 </body>
 </html>

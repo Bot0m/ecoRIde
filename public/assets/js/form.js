@@ -1,45 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-    initialize();
-});
-
-// Initialisation des fonctionnalités principales au chargement du DOM
-function initialize() {
-    handleActiveLinks();
-    handleMenuToggle();
-    handleFormToggle();
-    validateForm();
-    handleScrollToTop();
-}
-
-// Gestion des liens actifs dans la navigation
-// Cette fonction met en surbrillance le lien correspondant à la page actuelle
-function handleActiveLinks() {
-    const menuLinks = document.querySelectorAll('.navbar-menu a');
-    const currentUrl = window.location.href;
-    
-    menuLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.href === currentUrl) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Gestion du menu burger pour la navigation mobile
-function handleMenuToggle() {
-    const toggle = document.querySelector('.navbar-toggle');
-    const menu = document.querySelector('.navbar-menu');
-    
-    if (!toggle || !menu) return;
-    
-    toggle.addEventListener('click', () => {
-        toggle.classList.toggle('active');
-        menu.classList.toggle('active');
-    });
-}
-
 // Gestion de l'affichage des formulaires (recherche et publication)
-function handleFormToggle() {
+export function handleFormToggle() {
     const toggleSearch = document.getElementById("toggleSearch");
     const togglePublish = document.getElementById("togglePublish");
     const searchForm = document.getElementById("searchForm");
@@ -62,7 +22,7 @@ function toggleForm(formToShow, buttonToActivate, buttonToDeactivate, allForms) 
 
 // Validation des formulaires
 // Vérifie que tous les champs requis sont remplis avant soumission
-function validateForm() {
+export function validateForm() {
     document.querySelectorAll("form").forEach(form => {
         form.addEventListener("submit", event => {
             let isValid = true;
@@ -82,17 +42,3 @@ function validateForm() {
     });
 }
 
-// Gestion du bouton "Retour en haut"
-// Affiche ou masque le bouton en fonction du défilement et gère l'animation de retour en haut
-function handleScrollToTop() {
-    const scrollToTopBtn = document.getElementById("scrollToTop");
-    if (!scrollToTopBtn) return;
-    
-    window.addEventListener("scroll", () => {
-        scrollToTopBtn.classList.toggle("show", window.scrollY > 300);
-    });
-    
-    scrollToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-}
