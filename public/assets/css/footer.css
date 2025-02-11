@@ -1,0 +1,25 @@
+/* ===================== FOOTER ===================== */
+.footer {
+    background-color: var(--background-secondary);
+    color: var(--text-primary);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: auto;
+}
+
+.footer-container a {
+    color: var(--button-primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-container a:hover {
+    color: var(--button-hover);
+    text-decoration: underline;
+}
+
+.mentions {
+    text-align: left;
+    margin: auto;
+}
