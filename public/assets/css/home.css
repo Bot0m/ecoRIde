@@ -1,0 +1,342 @@
+
+/* ===================== LOGO & Formulaires/Toggle ===================== */
+
+html, body h1 {
+    color: var(--button-primary);
+    text-align: center;
+}
+
+.hero-section {
+    margin-bottom: 50px;
+}
+
+/* Organisation des colonnes */
+.columns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Colonne gauche (Logo) */
+.column.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Colonne droite (Formulaires & Toggle) */
+.column.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px;
+}
+
+/* Toggle Switch */
+.toggle-container {
+    display: flex;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--button-primary);
+}
+
+.toggle-button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: var(--text-secondary);
+    color: var(--text-primary);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.toggle-button.active {
+    background: var(--button-primary);
+    color: var(--background-main);
+}
+
+/* Formulaires */
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--background-secondary);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: start;
+}
+
+/* Cache les formulaires par défaut */
+.form {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Active un formulaire visible */
+.form.active {
+    display: flex;
+}
+
+/* Champs des formulaires */
+label {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+/* Correction du dépassement des placeholders */
+.search-input::placeholder {
+    font-size: 14px;
+    color: var(--text-secondary);
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-input {
+    width: 100%;
+    height: 40px;
+    padding: 8px 10px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 8px;
+    font-size: 14px;
+    background: var(--background-main);
+    color: var(--text-primary);
+    box-sizing: border-box;
+}
+
+input[type="date"], select {
+    appearance: none;
+    -webkit-appearance: none;
+    font-size: 14px;
+    height: 40px;
+}
+
+/* Boutons */
+.search-button {
+    width: 100%;
+    padding: 12px;
+    background: var(--button-primary);
+    color: var(--background-main);
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-button:hover {
+    background: var(--button-hover);
+}
+
+.main {
+    padding-bottom: 50px;
+}
+
+/* ===================== RESPONSIVE - LOGO & Formulaires/Toggle ===================== */
+@media (max-width: 1024px) {
+    .columns {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .column.right {
+        padding-left: 0;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 150%;
+        max-width: 500px;
+        margin-bottom: 40px;
+    }
+
+    .logo {
+        width: 180px;
+    }
+
+    .toggle-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* ===================== SECTION PRINCIPALE ===================== */
+
+/* Section principale */
+.content-section {
+    width: 100%;
+    padding: 50px 0;
+    background-color: var(--background-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Conteneur de chaque bloc */
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 50px;
+    padding: 20px;
+}
+
+/* Texte */
+.content-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.content-text h2 {
+    font-size: 24px;
+    color: var(--button-primary);
+    margin-bottom: 10px;
+}
+
+.content-text p {
+    font-size: 16px;
+    color: var(--background-main);
+    line-height: 1.5;
+}
+
+/* Image */
+.content-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Alternance des blocs */
+.reverse {
+    flex-direction: column;
+}
+
+/* ===================== RESPONSIVE - HOME CONTENT ===================== */
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .reverse {
+        flex-direction: column;
+    }
+
+    .content-text {
+        order: -1; /* Force le texte à apparaître avant l'image, probleme du bloc 2*/
+    }
+
+    .content-text, .content-image {
+        max-width: 90%;
+    }
+
+    .content-image img {
+        max-width: 80%; /* Ajuste la taille des images sur mobile */
+    }
+}
+
+/* ===================== Reviews SECTION ===================== */
+.reviews-section {
+    text-align: center;
+    padding: 140px 20px 100px; /* Augmente l'espace haut et bas */
+    background: var(--background-main);
+    background-image: url('../pictures/EcoRide-back.svg');
+    background-size: cover; 
+    background-position: bottom;
+    margin-bottom: -50px;
+}
+
+/* Correction de l’espace entre l’image et le footer */
+.reviews-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Augmente la taille du titre */
+.reviews-title {
+    font-size: 36px; /* Plus grand pour bien ressortir */
+    font-weight: bold; /* Rend le titre plus impactant */
+    color: var(--button-primary);
+    text-align: center;
+    margin-bottom: 50px; /* Ajoute plus d’espace sous le titre */
+}
+
+/* Conteneur des avis */
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Augmente l'espace entre les cartes */
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Agrandir les cartes d'avis */
+.review-card {
+    background: var(--background-secondary);
+    padding: 30px; /* Plus d’espace intérieur */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 350px; /* Augmente la taille max */
+    text-align: left;
+}
+
+/* Texte de l'avis */
+.review-text {
+    font-size: 18px; /* Légèrement plus grand */
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+/* Auteur de l'avis */
+.review-author {
+    font-size: 16px;
+    color: var(--background-main);
+    font-style: italic;
+}
+
+/* ===================== RESPONSIVE - REVIEWS SECTION ===================== */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-card {
+        max-width: 90%;
+        padding: 25px; /* Ajuste la taille intérieure */
+    }
+
+    .reviews-title {
+        font-size: 30px; /* Ajuste la taille du titre sur mobile */
+    }
+}
