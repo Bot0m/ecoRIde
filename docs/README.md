@@ -43,7 +43,10 @@ root/
 │ │ │ ├── mentions-legales.css
 │ │ │ ├── connexion.css
 │ │ ├── js/
-│ │ │ ├── script.js
+│ │ │ ├── form.js
+│ │ │ ├── main.js
+│ │ │ ├── navigation.js
+│ │ │ ├── scrolltotop.js
 │ │ │ ├── ...
 │ │ ├── images/
 │
