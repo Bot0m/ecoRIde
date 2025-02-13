@@ -2,36 +2,40 @@
     <section class="search-section">
         <h1 class="hero-title">Rechercher votre prochain trajet</h1>
         <div class="search-container">
-            <div class="search-row">
-                <div class="search-group">
-                    <label for="from-search">De</label>
-                    <input type="text" id="from-search" placeholder="Lieu de départ" class="search-input">
+            <!-- On encapsule les champs de recherche dans un formulaire -->
+            <form id="searchForm" class="ajax-form" action="index.php?page=covoiturages" method="GET">
+                <div class="search-row">
+                    <div class="search-group">
+                        <label for="from-search">De</label>
+                        <input type="text" id="from-search" name="from" placeholder="Lieu de départ" class="search-input" required>
+                    </div>
+                    <div class="search-group">
+                        <label for="to-search">À</label>
+                        <input type="text" id="to-search" name="to" placeholder="Lieu d'arrivée" class="search-input" required>
+                    </div>
                 </div>
-                <div class="search-group">
-                    <label for="to-search">À</label>
-                    <input type="text" id="to-search" placeholder="Lieu d'arrivée" class="search-input">
+                <div class="search-row">
+                    <div class="search-group">
+                        <label for="date-search">Date</label>
+                        <input type="date" id="date-search" name="date" class="search-input" required>
+                    </div>
+                    <div class="search-group">
+                        <label for="passengers-search">Nombre de passagers</label>
+                        <select id="passengers-search" name="passengers" class="search-input" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <!-- Le bouton de soumission est de type "submit" pour déclencher la soumission du formulaire -->
+                    <button type="submit" class="search-button-co" title="Lancer votre recherche">Rechercher</button>
                 </div>
-            </div>
-            <div class="search-row">
-                <div class="search-group">
-                    <label for="date-search">Date</label>
-                    <input type="date" id="date-search" class="search-input">
-                </div>
-                <div class="search-group">
-                    <label for="passengers-search">Nombre de passagers</label>
-                    <select id="passengers-search" class="search-input">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                    </select>
-                </div>
-                <button class="search-button-co" title="Lancer votre recherche">Rechercher</button>
-            </div>
+            </form>
         </div>
     </section>
     <section class="search-results">
@@ -62,4 +66,3 @@
         </div>
     </section>
 </main>
-

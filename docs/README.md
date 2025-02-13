@@ -27,6 +27,7 @@ root/
 │ │ ├── home.php
 │ │ ├── covoiturages.php
 │ │ ├── mentions-legales.php
+│ │ ├── publier.php
 │ │ ├── contact.php
 │ │ ├── connexion.php
 │ │ ├── 404.php
@@ -47,6 +48,7 @@ root/
 │ │ │ ├── main.js
 │ │ │ ├── navigation.js
 │ │ │ ├── scrolltotop.js
+│ │ │ ├── formToggle.js
 │ │ │ ├── ...
 │ │ ├── images/
 │

@@ -1,5 +1,6 @@
 import { handleActiveLinks, handleMenuToggle } from './navigation.js';
-import { handleFormToggle, validateForm } from './form.js';
+import { handleFormToggleSwitch } from './formToggle.js';
+import {handleSearchForm } from './form.js';
 import { handleScrollToTop } from './scrollToTop.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function initialize() {
     handleActiveLinks();
     handleMenuToggle();
-    handleFormToggle();
-    validateForm();
+    handleSearchForm();
     handleScrollToTop();
+    handleFormToggleSwitch();
 }

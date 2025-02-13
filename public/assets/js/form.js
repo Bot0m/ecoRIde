@@ -1,44 +1,48 @@
-// Gestion de l'affichage des formulaires (recherche et publication)
-export function handleFormToggle() {
-    const toggleSearch = document.getElementById("toggleSearch");
-    const togglePublish = document.getElementById("togglePublish");
+// form.js – Gestion de la recherche sur la page covoiturages avec préparation aux appels Ajax
+
+export function handleSearchForm() {
     const searchForm = document.getElementById("searchForm");
-    const publishForm = document.getElementById("publishForm");
-    const allForms = document.querySelectorAll(".form");
-    
-    if (!toggleSearch || !togglePublish || !searchForm || !publishForm) return;
-    
-    toggleSearch.addEventListener("click", () => toggleForm(searchForm, toggleSearch, togglePublish, allForms));
-    togglePublish.addEventListener("click", () => toggleForm(publishForm, togglePublish, toggleSearch, allForms));
-}
+    if (!searchForm) return;
 
-// Fonction pour basculer entre les formulaires visibles
-function toggleForm(formToShow, buttonToActivate, buttonToDeactivate, allForms) {
-    allForms.forEach(form => form.classList.remove("active"));
-    formToShow.classList.add("active");
-    buttonToActivate.classList.add("active");
-    buttonToDeactivate.classList.remove("active");
-}
+    searchForm.addEventListener("submit", async function(event) {
+        event.preventDefault(); // On intercepte la soumission classique
 
-// Validation des formulaires
-// Vérifie que tous les champs requis sont remplis avant soumission
-export function validateForm() {
-    document.querySelectorAll("form").forEach(form => {
-        form.addEventListener("submit", event => {
-            let isValid = true;
-            form.querySelectorAll("input[required], select[required], textarea[required]").forEach(input => {
-                if (input.value.trim() === "") {
-                    isValid = false;
-                    input.classList.add("error");
-                } else {
-                    input.classList.remove("error");
-                }
-            });
-            if (!isValid) {
-                alert("Veuillez remplir tous les champs obligatoires");
-                event.preventDefault();
+        // Validation simple : vérifier que tous les champs requis sont remplis
+        let isValid = true;
+        searchForm.querySelectorAll("input[required], select[required], textarea[required]").forEach(input => {
+            if (input.value.trim() === "") {
+                isValid = false;
+                input.classList.add("error");
+            } else {
+                input.classList.remove("error");
             }
         });
+        if (!isValid) {
+            alert("Veuillez remplir tous les champs obligatoires");
+            return;
+        }
+
+        // Préparer les données pour une requête Ajax en GET (adaptable si vous passez en POST)
+        const formData = new FormData(searchForm);
+        const url = urlWithParams(searchForm.action, formData);
+
+        try {
+            const response = await fetch(url, { method: "GET" });
+            // On suppose ici que la réponse est au format JSON
+            const data = await response.json();
+            console.log("Résultats de recherche:", data);
+            // Mettre à jour l'interface avec les résultats de recherche
+        } catch (error) {
+            console.error("Erreur lors de la recherche:", error);
+        }
     });
 }
 
+// Fonction utilitaire pour construire une URL GET avec les paramètres du formulaire
+function urlWithParams(url, formData) {
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+        params.append(key, value);
+    }
+    return url + (url.includes('?') ? '&' : '?') + params.toString();
+}

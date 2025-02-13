@@ -1,43 +1,55 @@
+/* ===================== BASE & TYPOGRAPHIE ===================== */
 
-/* ===================== LOGO & Formulaires/Toggle ===================== */
-
-html, body h1 {
+html, body, h1 {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
     color: var(--button-primary);
     text-align: center;
 }
+
+/* ===================== HERO SECTION ===================== */
 
 .hero-section {
     margin-bottom: 50px;
 }
 
-/* Organisation des colonnes */
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===================== LAYOUT DES COLONNES ===================== */
+
 .columns {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* alignement sur le haut */
     gap: 100px;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
+    flex-wrap: wrap; /* pour une meilleure adaptation sur mobile */
 }
 
-/* Colonne gauche (Logo) */
+/* Colonne gauche : Logo */
 .column.left {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-/* Colonne droite (Formulaires & Toggle) */
+/* Colonne droite : Toggle et Formulaire */
 .column.right {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-left: 40px;
+    align-items: center;
+    padding: 20px;
 }
 
-/* Toggle Switch */
+/* ===================== TOGGLE SWITCH ===================== */
+
 .toggle-container {
     display: flex;
     margin-bottom: 15px;
@@ -62,45 +74,41 @@ html, body h1 {
     color: var(--background-main);
 }
 
-/* Formulaires */
-.form-container {
+/* ===================== FORMULAIRE ===================== */
+
+/* Style global du formulaire */
+form#travelForm {
     width: 100%;
     max-width: 450px;
     background: var(--background-secondary);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: start;
+    margin-top: 20px;
 }
 
-/* Cache les formulaires par défaut */
-.form {
-    display: none;
+/* Conteneur des champs (affiché par défaut) */
+form#travelForm .form {
+    display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* Active un formulaire visible */
-.form.active {
+/* Groupes de champs */
+.search-group {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* Champs des formulaires */
-label {
+/* Labels */
+form#travelForm label {
     font-weight: bold;
     color: var(--text-primary);
+    margin-bottom: 5px;
 }
 
-/* Correction du dépassement des placeholders */
-.search-input::placeholder {
-    font-size: 14px;
-    color: var(--text-secondary);
-    opacity: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
+/* Inputs et select */
 .search-input {
     width: 100%;
     height: 40px;
@@ -113,14 +121,24 @@ label {
     box-sizing: border-box;
 }
 
-input[type="date"], select {
+.search-input::placeholder {
+    font-size: 14px;
+    color: var(--text-secondary);
+    opacity: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input[type="date"],
+select {
     appearance: none;
     -webkit-appearance: none;
     font-size: 14px;
     height: 40px;
 }
 
-/* Boutons */
+/* Bouton de recherche */
 .search-button {
     width: 100%;
     padding: 12px;
@@ -138,30 +156,38 @@ input[type="date"], select {
     background: var(--button-hover);
 }
 
+/* ===================== MAIN ===================== */
+
 .main {
     padding-bottom: 50px;
 }
 
-/* ===================== RESPONSIVE - LOGO & Formulaires/Toggle ===================== */
+/* ===================== RESPONSIVE ===================== */
+
 @media (max-width: 1024px) {
-    .columns {
+    .columns { /* ou le conteneur concerné */
+        display: flex;
         flex-direction: column;
+        justify-content: center; /* centre verticalement */
+        align-items: center;    /* centre horizontalement */
         gap: 40px;
     }
 
-    .column.right {
-        padding-left: 0;
-        align-items: center;
+    .columns, .column.right { /* ou tout autre conteneur de texte */
+        text-align: center;
     }
 }
 
 @media (max-width: 768px) {
-    .form-container {
-        width: 150%;
+    form#travelForm {
         max-width: 500px;
-        margin-bottom: 40px;
+        margin: 0 auto 40px auto;
     }
 
+    form#travelForm, .logo {
+        margin: 0 auto;
+    }
+    
     .logo {
         width: 180px;
     }
@@ -260,6 +286,7 @@ input[type="date"], select {
 
 /* ===================== Reviews SECTION ===================== */
 .reviews-section {
+    position: relative;
     text-align: center;
     padding: 140px 20px 100px; /* Augmente l'espace haut et bas */
     background: var(--background-main);
