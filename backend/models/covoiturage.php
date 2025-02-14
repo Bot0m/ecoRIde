@@ -1,35 +1,51 @@
 <?php
-/**
-Cette classe permet de gérer les trajets de covoiturage dans la base de données.
-Elle fournit des méthodes pour récupérer tous les trajets et rechercher des trajets selon le lieu de départ, le lieu d'arrivée et la date de départ.
- */
+// backend/models/Covoiturage.php
+
+require_once __DIR__ . '/../config/database.php';
 
 class Covoiturage {
     private $conn;
     private $table = "covoiturages";
 
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct() {
+        $database = new Database();
+        $this->conn = $database->getConnection();
     }
 
-    public function getAllTrajets() {
-        $query = "SELECT * FROM " . $this->table;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+
+//Recherche des trajets en fonction des critères :
+//- depart : recherche partielle (LIKE)
+//- destination : recherche partielle (LIKE)
+//- date_trajet : correspondance exacte
+//- passengers : places disponibles >= nombre de passagers demandés
+//@param array $criteria
+//@return array
+public function search($criteria) {
+    $query = "SELECT * FROM " . $this->table . " WHERE 1=1";
+    $params = [];
+
+    if (!empty($criteria['depart'])) {
+        $query .= " AND depart LIKE :depart";
+        $params[':depart'] = '%' . $criteria['depart'] . '%';
     }
 
-    public function searchTrajets($depart, $arrive, $date) {
-        $query = "SELECT * FROM " . $this->table . " WHERE lieu_depart LIKE ? AND lieu_arrivee LIKE ?";
-        $params = ["%$depart%", "%$arrive%"];
-
-        if (!empty($date)) {
-            $query .= " AND date_depart = ?";
-            $params[] = $date;
-        }
-
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute($params);
-        return $stmt;
+    if (!empty($criteria['destination'])) {
+        $query .= " AND destination LIKE :destination";
+        $params[':destination'] = '%' . $criteria['destination'] . '%';
     }
+
+    if (!empty($criteria['date_trajet'])) {
+        $query .= " AND date_trajet = :date_trajet";
+        $params[':date_trajet'] = $criteria['date_trajet'];
+    }
+
+    if (!empty($criteria['passengers'])) {
+        $query .= " AND places >= :passengers";
+        $params[':passengers'] = $criteria['passengers'];
+    }
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute($params);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }

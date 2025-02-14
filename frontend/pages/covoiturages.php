@@ -3,7 +3,7 @@
         <h1 class="hero-title">Rechercher votre prochain trajet</h1>
         <div class="search-container">
             <!-- On encapsule les champs de recherche dans un formulaire -->
-            <form id="searchForm" class="ajax-form" action="index.php?page=covoiturages" method="GET">
+            <form id="searchForm" class="ajax-form" action="<?php echo BASE_URL; ?>api/routerAPI.php?resource=trajets" method="GET">
                 <div class="search-row">
                     <div class="search-group">
                         <label for="from-search">De</label>

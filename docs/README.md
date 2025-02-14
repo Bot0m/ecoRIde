@@ -36,6 +36,8 @@ root/
 ├── public/ # Fichiers accessibles publiquement
 │ ├── index.php
 │ ├── .htaccess
+│ ├── api/
+│ │ └── routerAPI.php
 │ ├── assets/
 │ │ ├── css/
 │ │ │ ├── style.css
