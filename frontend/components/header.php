@@ -1,4 +1,5 @@
-<header>
+<header class="header">
+    <div class="header-container">
         <nav class="navbar">
             <div class="navbar-container">
                 <div class="navbar-logo"></div>
@@ -18,4 +19,5 @@
                 </div>
             </div>
         </nav>
+    </div>
 </header>

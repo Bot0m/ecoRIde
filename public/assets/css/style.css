@@ -8,13 +8,18 @@
     --background-secondary: #C8B9A6; /* Arrière-plan secondaire */
 }
 
+/* Reset général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* ===================== BASE & LAYOUT ===================== */
 html, body {
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--text-primary);
     background-color: var(--background-main);
-    margin: 0;
-    padding: 0;
     height: 100%;
 }
 
@@ -22,6 +27,21 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+main p,
+main a,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+    padding: 1rem;
+}
+
+main, h1 {
+    padding-bottom: 1rem;
 }
 
 /* Bouton de retour en haut */
