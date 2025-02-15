@@ -1,6 +1,6 @@
 <?php
 // Liste des pages disponibles
-$pages_disponibles = ['home', 'mentions-legales', 'covoiturages', 'connexion', 'publier'];
+$pages_disponibles = ['home', 'mentions-legales', 'covoiturages', 'connexion', 'publier', 'inscription'];
 
 if (in_array($page, $pages_disponibles)) {
     include "pages/$page.php";

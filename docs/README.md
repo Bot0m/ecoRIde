@@ -30,6 +30,7 @@ root/
 │ │ ├── publier.php
 │ │ ├── contact.php
 │ │ ├── connexion.php
+│ │ ├── inscription.php
 │ │ ├── 404.php
 │ ├── router.php # 🔄 Déplacé ici pour ne pas être accessible publiquement
 │
@@ -43,10 +44,13 @@ root/
 │ │ │ ├── style.css
 │ │ │ ├── home.css
 │ │ │ ├── covoiturages.css
-│ │ │ ├── mentions-legales.css
+│ │ │ ├── header.css
+│ │ │ ├── footer.css
 │ │ │ ├── connexion.css
+│ │ │ ├── inscription.css
 │ │ ├── js/
 │ │ │ ├── form.js
+│ │ │ ├── search.js
 │ │ │ ├── main.js
 │ │ │ ├── navigation.js
 │ │ │ ├── scrolltotop.js
