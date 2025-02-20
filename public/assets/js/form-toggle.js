@@ -1,6 +1,15 @@
-// formtoggle.js – Gestion du toggleswitch pour basculer entre Rechercher et Publier,
+// form-toggle.js – Gestion du toggleswitch pour basculer entre Rechercher et Publier,
 // avec préparation à une soumission Ajax du formulaire principal
 
+/**
+ * Gestion du basculement entre les modes "Rechercher" et "Publier"
+ * dans le formulaire principal avec préparation pour soumission Ajax
+ */
+
+/**
+ * Initialise et gère le basculement entre les modes du formulaire
+ * @returns {void}
+ */
 export function handleFormToggleSwitch() {
     const toggleSearch = document.getElementById('toggleSearch');
     const togglePublish = document.getElementById('togglePublish');
@@ -9,10 +18,10 @@ export function handleFormToggleSwitch() {
 
     if (!toggleSearch || !togglePublish || !travelForm || !submitButton) return;
 
-    // Par défaut, on définit le mode "Rechercher"
+    // Initialisation en mode "Rechercher"
     setSearchMode();
 
-    // Écouteurs pour basculer les modes
+    // Écouteurs pour les boutons de basculement
     toggleSearch.addEventListener('click', () => {
         setSearchMode();
     });
@@ -20,33 +29,22 @@ export function handleFormToggleSwitch() {
         setPublishMode();
     });
 
-    // Intercepter la soumission du formulaire pour préparer un appel Ajax
+    // Gestion de la soumission du formulaire
     travelForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        // Validation simple avant envoi
         if (!validateTravelForm(travelForm)) {
             alert("Veuillez remplir tous les champs obligatoires");
             return;
         }
 
-        // Préparer les données du formulaire pour une requête Ajax GET
-        const formData = new FormData(travelForm);
-        let url = travelForm.action;
-        url = urlWithParams(url, formData);
-
-        try {
-            const response = await fetch(url, { method: "GET" });
-            // On suppose ici que la réponse est au format JSON
-            const data = await response.json();
-            console.log("Réponse Ajax de travelForm:", data);
-            // Mettre à jour l'interface selon la réponse (par exemple afficher des résultats ou messages)
-        } catch (error) {
-            console.error("Erreur lors de la requête Ajax:", error);
-        }
+        await submitTravelForm(travelForm);
     });
 
-    // Fonctions internes pour définir le mode de l'interface
+    /**
+     * Configure l'interface en mode "Rechercher"
+     * @returns {void}
+     */
     function setSearchMode() {
         toggleSearch.classList.add('active');
         togglePublish.classList.remove('active');
@@ -54,6 +52,10 @@ export function handleFormToggleSwitch() {
         submitButton.textContent = 'Rechercher';
     }
 
+    /**
+     * Configure l'interface en mode "Publier"
+     * @returns {void}
+     */
     function setPublishMode() {
         togglePublish.classList.add('active');
         toggleSearch.classList.remove('active');
@@ -62,16 +64,11 @@ export function handleFormToggleSwitch() {
     }
 }
 
-// Fonction utilitaire pour construire une URL GET avec les paramètres du formulaire
-function urlWithParams(url, formData) {
-    const params = new URLSearchParams();
-    for (const [key, value] of formData.entries()) {
-        params.append(key, value);
-    }
-    return url + (url.includes('?') ? '&' : '?') + params.toString();
-}
-
-// Validation simple du formulaire travelForm
+/**
+ * Valide les champs requis du formulaire
+ * @param {HTMLFormElement} form - Le formulaire à valider
+ * @returns {boolean} - True si le formulaire est valide
+ */
 function validateTravelForm(form) {
     let isValid = true;
     form.querySelectorAll("input[required], select[required], textarea[required]").forEach(input => {
@@ -83,4 +80,18 @@ function validateTravelForm(form) {
         }
     });
     return isValid;
+}
+
+/**
+ * Construit une URL avec les paramètres du formulaire
+ * @param {string} url - L'URL de base
+ * @param {FormData} formData - Les données du formulaire
+ * @returns {string} - L'URL complète avec paramètres
+ */
+function urlWithParams(url, formData) {
+    const params = new URLSearchParams();
+    for (const [key, value] of formData.entries()) {
+        params.append(key, value);
+    }
+    return url + (url.includes('?') ? '&' : '?') + params.toString();
 }

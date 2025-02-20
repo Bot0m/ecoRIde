@@ -1,8 +1,17 @@
 <?php
+/**
+ * Point d'entrée principal de l'application
+ * Gère le routage et l'affichage des pages
+ */
+
+use App\Config\Config;
+
 // Configuration globale
 require_once '../backend/config/config.php';
+require_once __DIR__ . '/../backend/autoload.php';
+require_once '../backend/config/Database.php';
 
-// Récupérer la page demandée via l'URL (par défaut : home)
+// Récupération de la page demandée (par défaut : home)
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 ?>
@@ -18,7 +27,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
-    <!-- Chargement dynamique du CSS spécifique -->
+    <!-- Chargement dynamique du CSS spécifique à la page -->
     <?php
     $css_file = "assets/css/$page.css";
     if (file_exists($css_file)) {
@@ -27,7 +36,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
     ?>
 </head>
 <body>
-
     <?php include '../frontend/components/header.php'; ?>
 
     <main>
@@ -41,6 +49,5 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
     <!-- Scripts -->
     <script type="module" src="assets/js/main.js"></script>
-
 </body>
 </html>

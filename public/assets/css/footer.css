@@ -5,9 +5,10 @@
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    margin-top: auto;
+    margin-top: auto; /* Pousse le footer en bas */
 }
 
+/* ===================== CONTENEUR FOOTER ===================== */
 .footer-container a {
     color: var(--button-primary);
     text-decoration: none;
@@ -19,6 +20,7 @@
     text-decoration: underline;
 }
 
+/* ===================== MENTIONS LÉGALES ===================== */
 .mentions {
     text-align: left;
     margin: auto;

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Page d'inscription
+ * Permet aux nouveaux utilisateurs de créer un compte
+ */
+
 session_start();
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));

@@ -1,0 +1,40 @@
+/* ===================== MENTIONS LÉGALES ===================== */
+.mentions {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.mentions h1,
+.mentions h2,
+.mentions p,
+.mentions ul,
+.mentions li {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.mentions h1 {
+    text-align: center;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.mentions h2 {
+    color: var(--text-primary);
+    margin-top: 2rem;
+}
+
+.mentions ul {
+    list-style-position: inside;
+    padding-left: 2rem;
+}
+
+.mentions a {
+    color: var(--button-primary);
+    text-decoration: none;
+}
+
+.mentions a:hover {
+    text-decoration: underline;
+}

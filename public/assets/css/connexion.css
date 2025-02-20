@@ -1,32 +1,36 @@
-
+/* ===================== LAYOUT DE BASE ===================== */
 html, body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
+/* ===================== CONTENEUR PRINCIPAL ===================== */
 main.main {
     display: flex;
     align-items: center;
     justify-content: center; 
 }
 
+/* ===================== CONTENEUR FORMULAIRE ===================== */
 .container {
     background: var(--background-secondary);
     margin: 2rem;
     padding: 20px;
     border-radius: 8px;
-    /* Largeur fixe ou max, pour éviter que ça s’étale trop */
+    /* Largeur fixe ou max, pour éviter que ça s'étale trop */
     max-width: 400px;
     width: 100%;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+/* ===================== TITRE ===================== */
 .hero-title {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* ===================== FORMULAIRE ===================== */
 .form-container {
     width: 100%;
 }
@@ -47,6 +51,7 @@ main.main {
     border-radius: 4px;
 }
 
+/* ===================== LIENS ET TEXTES ===================== */
 .form-container p {
     text-align: center;
     margin-top: 15px;
@@ -61,7 +66,7 @@ main.main {
     text-decoration: underline;
 }
 
-/* Bouton de recherche */
+/* ===================== BOUTON DE SOUMISSION ===================== */
 .search-button {
     width: 100%;
     padding: 12px;

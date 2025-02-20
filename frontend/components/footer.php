@@ -1,3 +1,9 @@
+<?php
+/**
+ * Pied de page du site
+ * Contient les liens importants et les mentions légales
+ */
+?>
 <footer class="footer">
     <div class="footer-container">
         <p>Contactez-nous : <a href="mailto:contact@ecoride.com">contact@ecoride.com</a></p>

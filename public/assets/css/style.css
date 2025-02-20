@@ -1,21 +1,21 @@
 /* ===================== VARIABLES GLOBALES ===================== */
 :root {
-    --text-primary: #2F4F4F; /* Texte principal */
-    --text-secondary: #B0B0B0; /* Texte secondaire */
-    --button-primary: #008080; /* Bouton principal */
-    --button-hover: #005F5F; /* Hover des boutons */
-    --background-main: #E8E6E3; /* Arrière-plan principal */
-    --background-secondary: #C8B9A6; /* Arrière-plan secondaire */
+    --text-primary: #2F4F4F;      /* Texte principal - Gris anthracite */
+    --text-secondary: #B0B0B0;    /* Texte secondaire - Gris clair */
+    --button-primary: #008080;    /* Bouton principal - Bleu sarcelle */
+    --button-hover: #005F5F;      /* Hover des boutons - Bleu sombre */
+    --background-main: #E8E6E3;   /* Arrière-plan principal - Gris clair teinté */
+    --background-secondary: #C8B9A6; /* Arrière-plan secondaire - Beige foncé */
 }
 
-/* Reset général */
+/* ===================== RESET & BASE ===================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===================== BASE & LAYOUT ===================== */
+/* ===================== LAYOUT PRINCIPAL ===================== */
 html, body {
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--text-primary);
@@ -29,6 +29,7 @@ body {
     min-height: 100vh;
 }
 
+/* ===================== CONTENEUR PRINCIPAL ===================== */
 main p,
 main a,
 main h1,
@@ -44,7 +45,7 @@ main, h1 {
     padding-bottom: 1rem;
 }
 
-/* Bouton de retour en haut */
+/* ===================== BOUTON RETOUR EN HAUT ===================== */
 .scroll-to-top {
     position: fixed;
     top: 50%;

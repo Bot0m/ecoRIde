@@ -2,7 +2,22 @@
 
 ## Description
 
-EcoRide est une application web permettant de rechercher, réserver et proposer des trajets en covoiturage de manière écologique.
+EcoRide est une plateforme web innovante de covoiturage écologique permettant aux utilisateurs de rechercher, réserver et proposer des trajets tout en privilégiant une approche respectueuse de l'environnement.
+
+## Prérequis
+
+- PHP 8
+- MySQL
+- Apache/Nginx
+- Navigateur web moderne
+
+## Installation
+
+1. Cloner le projet (https://github.com/Bot0m/ecoRIde.git)
+2. Configurer la base de données
+3. Configurer les permissions des dossiers
+4. Démarrer le serveur Apache/Nginx
+5. Ouvrir le projet dans le navigateur
 
 ---
 
@@ -10,66 +25,90 @@ EcoRide est une application web permettant de rechercher, réserver et proposer 
 
 root/
 ├── backend/
+│ ├── config/
+│ │ ├── Config.php
+│ │ ├── Database.php
 │ ├── controllers/
 │ │ ├── CovoiturageController.php
 │ ├── models/
 │ │ ├── Covoiturage.php
-│ ├── config/
-│ │ ├── database.php
-│ ├── index.php
 │ ├── api.php
-│
-├── frontend/ # Code source frontend
+│ ├── autoload.php
+│ ├── index.php
+├── frontend/
 │ ├── components/
-│ │ ├── header.php
 │ │ ├── footer.php
+│ │ ├── header.php
 │ ├── pages/
-│ │ ├── home.php
+│ │ ├── 404.ph
+│ │ ├── annonce.php
+│ │ ├── connexion.php
 │ │ ├── covoiturages.php
+│ │ ├── home.php
+│ │ ├── inscription.php
 │ │ ├── mentions-legales.php
 │ │ ├── publier.php
-│ │ ├── contact.php
-│ │ ├── connexion.php
-│ │ ├── inscription.php
-│ │ ├── 404.php
-│ ├── router.php # 🔄 Déplacé ici pour ne pas être accessible publiquement
+│ └── router.php
 │
-├── public/ # Fichiers accessibles publiquement
-│ ├── index.php
-│ ├── .htaccess
+├── public/
 │ ├── api/
 │ │ └── routerAPI.php
 │ ├── assets/
 │ │ ├── css/
-│ │ │ ├── style.css
-│ │ │ ├── home.css
-│ │ │ ├── covoiturages.css
-│ │ │ ├── header.css
-│ │ │ ├── footer.css
 │ │ │ ├── connexion.css
+│ │ │ ├── covoiturages.css
+│ │ │ ├── footer.css
+│ │ │ ├── header.css
+│ │ │ ├── home.css
 │ │ │ ├── inscription.css
+│ │ │ ├── mentions-legales.css
+│ │ │ ├── style.css
 │ │ ├── js/
+│ │ │ ├── form-toggle.js
 │ │ │ ├── form.js
-│ │ │ ├── search.js
 │ │ │ ├── main.js
 │ │ │ ├── navigation.js
-│ │ │ ├── scrolltotop.js
-│ │ │ ├── formToggle.js
-│ │ │ ├── ...
-│ │ ├── images/
-│
+│ │ │ ├── scroll-to-top.js
+│ │ │ ├── search.js
+│ │ ├── pictures/
+│ ├── .htaccess_old (Utile lors de la migration)
+│ ├── index.php
+│ ├── .gitignore
 └── docs/ # Documentation
 
 ---
 
 ## Instructions pour le moment
 
-- **Back-end** : Développer les bases (structure MVC, fichiers de configuration).
-- **Front-end** : Commencer par l’interface de la page d’accueil (HTML/CSS/JS).
+## Fonctionnalités
 
----
+### Implémentées
 
-## Chartre graphique couleur
+- Page d'accueil avec recherche de trajets
+- Navigation responsive
+- Système d'inscription/connexion
+- Recherche de covoiturages
+
+### En développement
+
+- Filtres de recherche avancés
+- Publication d'annonces
+- Espace utilisateur
+
+### Planifiées
+
+- Système de notation
+- Gestion des réservations
+- Espace administrateur
+
+## Technologies Utilisées
+
+- Frontend : HTML5, CSS3, JavaScript (ES6+)
+- Backend : PHP 8
+- Base de données : MySQL
+- Autres : PDO, API REST
+
+## Charte Graphique
 
 | Usage                 | Couleur           | HEX     |
 | --------------------- | ----------------- | ------- |
@@ -80,8 +119,16 @@ root/
 | Background principal  | Gris clair teinté | #E8E6E3 |
 | Background secondaire | Beige foncé       | #C8B9A6 |
 
----
+## Tests
+
+- Tests d'intégration en cours d'implémentation
 
 ## Auteur
 
-Développé par **Tom Perrocheau**.
+Développé par **Tom Perrocheau**
+
+## Contact
+
+Pour toute question : contact@ecoride.com(factice)
+
+---

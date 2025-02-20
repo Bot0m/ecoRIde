@@ -1,17 +1,25 @@
+/**
+ * Fichier principal de l'application
+ * Initialise toutes les fonctionnalités JavaScript au chargement du DOM
+ */
+
 import { handleActiveLinks, handleMenuToggle } from './navigation.js';
-import { handleFormToggleSwitch } from './formToggle.js';
-import {handleSearchForm } from './form.js';
-import { handleScrollToTop } from './scrollToTop.js';
+import { handleFormToggleSwitch } from './form-toggle.js';
+import { handleSearchForm } from './form.js';
+import { handleScrollToTop } from './scroll-to-top.js';
 
+/**
+ * Initialise toutes les fonctionnalités au chargement du DOM
+ * @returns {void}
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    initialize();
+    try {
+        handleActiveLinks();
+        handleMenuToggle();
+        handleSearchForm();
+        handleScrollToTop();
+        handleFormToggleSwitch();
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
 });
-
-// Initialisation des fonctionnalités principales au chargement du DOM
-function initialize() {
-    handleActiveLinks();
-    handleMenuToggle();
-    handleSearchForm();
-    handleScrollToTop();
-    handleFormToggleSwitch();
-}

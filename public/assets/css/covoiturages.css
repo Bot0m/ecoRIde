@@ -1,5 +1,6 @@
-/* ===================== Covoiturages / Search ===================== */
+/* ===================== RECHERCHE DE COVOITURAGE ===================== */
 
+/* Conteneur de recherche */
 .search-container {
     background: var(--background-secondary);
     padding: 20px;
@@ -9,6 +10,7 @@
     margin: 20px;
 }
 
+/* Style des placeholders */
 .search-container::placeholder {
     font-size: 14px;
     color: var(--text-secondary);
@@ -18,6 +20,7 @@
     text-overflow: ellipsis;
 }
 
+/* Ligne de recherche */
 .search-row {
     display: flex;
     gap: 15px;
@@ -26,130 +29,105 @@
     align-items: center;
 }
 
+/* Groupe de champs */
 .search-group {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
+/* Champs de saisie et bouton */
 .search-input, .search-button-co {
-    height: 40px; /* Assure une hauteur uniforme */
+    height: 40px;
     padding: 8px 10px;
     font-size: 16px;
     border-radius: 8px;
     border: 1px solid var(--border-color, #ccc);
 }
 
+/* Bouton de recherche */
 .search-button-co {
-    align-self: center;
-    height: 60px;
-    padding: 8px 10px;
-    width: 50%;
-    background: var(--button-primary);
+    background-color: var(--button-primary);
     color: var(--background-main);
-    font-weight: bold;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    font-weight: bold;
+    min-width: 120px;
+    transition: background-color 0.3s ease;
 }
 
-input[type="date"] {
-    width: 150px; /* Ajuste selon la taille du texte */
-    padding: 5px 10px;
+.search-button-co:hover {
+    background-color: var(--button-hover);
+}
+
+/* ===================== RÉSULTATS DE RECHERCHE ===================== */
+
+/* Message "Aucun résultat" */
+.no-results {
     text-align: center;
-    font-size: 16px;
-}
-
-select {
-    width: 60px !important;
-    min-width: 60px !important;
-    max-width: 60px !important;
-}
-
-.search-results {
-    text-align: center;
-    margin-top: 20px;
     padding: 20px;
-    background: var(--background-main);
-    border-radius: 12px;
-}
-
-.no-results p {
-    font-size: 16px;
     color: var(--text-primary);
-    margin-bottom: 10px;
 }
 
+/* Suggestions de trajets */
 .suggested-trips {
-    margin-top: 15px;
+    padding: 20px;
 }
 
+.suggested-trips h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+/* Cartes de trajets */
 .trip-cards {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .trip-card {
     background: var(--background-secondary);
     padding: 15px;
-    border-radius: 12px;
-    width: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-    text-align: center;
-}
-
-.trip-card:hover {
-    transform: scale(1.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .trip-card p {
     margin: 5px 0;
-    font-size: 16px;
 }
 
+/* Bouton "Voir" */
 .trip-button {
-    background: var(--button-primary);
-    color: white;
+    background-color: var(--button-primary);
+    color: var(--background-main);
     border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .trip-button:hover {
-    background: var(--button-secondary);
+    background-color: var(--button-hover);
 }
 
-.driver-photo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 8px;
-}
-
-
-/* ===================== Responsive - Covoiturages / Search ===================== */
-
+/* ===================== RESPONSIVE ===================== */
 @media screen and (max-width: 1024px) {
     .search-row {
-        flex-direction: column; /* Affichage en colonne pour les écrans plus petits */
+        flex-direction: column;
         gap: 10px;
     }
 
     .search-button-co {
-        width: 100%; /* Le bouton prend toute la largeur */
+        width: 100%;
         height: 50px;
     }
 
     input[type="date"], select {
-        width: 100%; /* Évite les décalages */
+        width: 100%;
     }
 }
 
@@ -173,4 +151,3 @@ select {
         height: 50px;
     }
 }
-
